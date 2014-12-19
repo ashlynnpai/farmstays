@@ -1,12 +1,20 @@
 require 'spec_helper' 
 
 describe FarmsController do
-       
+
+  describe "GET index" do
+    it "sets @farms variable" do
+      Fabricate.times(10, :farm) 
+      get :index
+      expect(Farm.count).to eq(10)
+    end
+  end
+  
   describe "GET show" do  
-    farm = Fabricate(:farm)
     it "sets @farm variable" do
-        get :show, id: farm.id
-        expect(assigns(:farm)).to eq(farm)
+      farm = Fabricate(:farm)
+      get :show, id: farm.id
+      expect(assigns(:farm)).to eq(farm)
     end      
   end
     
