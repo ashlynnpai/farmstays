@@ -11,3 +11,5 @@ Farm.create(name: "Sheep Shelter", address: "Old Sheep Road, Yorkshire, England"
 Farm.create(name: "Pony Paradise", address: "Ponies Path, Snæfellsjökull, Iceland", description: "Our ponies are pretty.", email: "pony@fake.com", phone: "0000", website: "prettypony.fake")
 
 user1 = User.create(name: "Happy Hippo", password: "password1", email: "user1@email.com")
+
+user2 = User.create(name: "Smiley Small", password: "password2", email: "user2@email.com")

@@ -10,14 +10,11 @@ describe UsersController do
   
   describe "POST create" do
     context "with valid input" do
-      it "creates user record" do   
-        unhappy = Fabricate(:user, email: "unhappy@sad.com")
-        post :create
+      before { post :create, user: Fabricate.attributes_for(:user) }
+      it "creates user record" do
         expect(User.count).to eq(1)
       end
-      it "redirects to home" do
-        unhappy = Fabricate(:user, email: "unhappy@sad.com")
-        post :create
+      it "redirects to signin" do
         expect(response).to redirect_to root_path
       end
     end
