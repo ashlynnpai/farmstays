@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'farms#index'
   
   resources :farms, only: [:index, :show] do
-    
+    resources :reviews, only: [:create]
   end
   
   resources :users, only: [:create]
@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  
+  
 end
