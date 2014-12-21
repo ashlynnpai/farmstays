@@ -1,11 +1,15 @@
 %article.farm
   .container-fluid.farms-main
     .jumbotron
-    %h3 Latest Farms
-    .row      
-      - @farms.latest_farms.each do |farm|
-        .latest-farms.col-sm-4    
-          %h4= farm.name
+      %h1 Farmstays
+      %h3 Search for farmstays around the world
+    .latest-farms
+      %h3 Latest Farms
+      .row      
+        - @farms.latest_farms.each do |farm|
+          .col-sm-4    
+            = link_to image_tag(farm.photo, width: '350')
+            %h4= link_to farm.name, farm_path(farm)
 
 
 

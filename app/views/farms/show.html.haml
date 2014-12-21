@@ -1,1 +1,14 @@
-%h3= @farm.name
+.container.farm-info
+  = link_to image_tag(@farm.photo, width: '700')
+  .farm-info
+    %h2= @farm.name
+    %h4.heading Location
+    %p= @farm.address
+    %h4.heading Contact
+    %p Email: #{@farm.email}
+    %p Phone: #{@farm.phone}
+    %p Website: #{@farm.website}
+    %h4.heading Price: $#{@farm.price}
+    %h4.heading Description
+    %p= @farm.description
+

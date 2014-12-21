@@ -1,14 +1,19 @@
 .container
-  %h3= @region.name
-  - @region.farms.each do |farm| 
-    %h4= farm.name
-    %p Location
-    %p= farm.address
-    %p Contact
-    %p= farm.email
-    %p= farm.phone
-    %p= farm.website
-    %p Price
-    %p= farm.price
-    %p Amenities
-    %p= farm.amenities
+  .region-list
+    %h2= @region.name
+    - @region.farms.each do |farm|    
+      .row
+        .col-sm-6 
+          %h3= link_to farm.name, farm_path(farm)
+          = link_to image_tag(farm.photo, width: '350')
+        .col-sm-6
+          .compact-farm
+            %h4.heading Location
+            %p= farm.address
+            %h4.heading Contact
+            %p Email: #{farm.email}
+            %p Phone: #{farm.phone}
+            %p Website: #{farm.website}
+            %h4.heading Price: $#{farm.price}
+
+
