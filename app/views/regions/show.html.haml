@@ -1,0 +1,14 @@
+.container
+  %h3= @region.name
+  - @region.farms.each do |farm| 
+    %h4= farm.name
+    %p Location
+    %p= farm.address
+    %p Contact
+    %p= farm.email
+    %p= farm.phone
+    %p= farm.website
+    %p Price
+    %p= farm.price
+    %p Amenities
+    %p= farm.amenities

@@ -5,6 +5,7 @@ describe Farm do
   it { should validate_presence_of(:address)}  
   it { should validate_presence_of(:description)}  
   it { should have_many(:reviews)}
+  it { should belong_to(:region) }
   
   
   describe "#latest_farms" do

@@ -1,2 +1,13 @@
-- @farms.each do |farm|
-    %h3= @farm.name
+%article.farm
+  .container-fluid.farms-main
+    .jumbotron
+    %h3 Latest Farms
+    .row      
+      - @farms.latest_farms.each do |farm|
+        .latest-farms.col-sm-4    
+          %h4= farm.name
+
+
+
+
+    
