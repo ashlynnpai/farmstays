@@ -1,3 +1,33 @@
 .dropdown-menu a{
     color: #000 !important;
 }
+
+.fadein { 
+    position:relative; 
+}
+
+.fadein img { 
+    position:absolute; 
+    left:20%; 
+    top:50px; 
+    width:700px; 
+}
+
+.about {
+    margin-top: 600px;
+}
+
+#about {
+    color: #9C6A8D;
+    font-family: 'Montserrat', sans-serif;  
+    text-align: center;
+    font-weight: 800;
+}
+
+#about-description {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 30px;
+    line-height: 1.4em;
+    font-weight: 600;
+}
+

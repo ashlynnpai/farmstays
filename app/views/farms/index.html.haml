@@ -1,8 +1,9 @@
 %article.farm
-  .container-fluid.farms-main
+  .container-fluid
     .jumbotron
       %h1 Farmstays
       %h3 Search for farmstays around the world
+      
     .latest-farms
       %h3 Latest Farms
       .row      
@@ -10,7 +11,31 @@
           .col-sm-4    
             = link_to image_tag(farm.photo, width: '350')
             %h4= link_to farm.name, farm_path(farm)
+      %h3 See what our farms have to offer
+    
+  .container
+    .row
+      .fadein
+        = image_tag("coffee.jpg")
+        = image_tag("date.jpg")
+        = image_tag("horse.jpg")          
+        = image_tag("llama.jpg")
+        = image_tag("pepper.jpg")
+        = image_tag("pony.jpg")
+        = image_tag("reindeer.jpg")
+        = image_tag("sheep.jpg")
+        = image_tag("wine.jpg")
 
+.container
+  .row
+    .about
+      %h3#about About Farmstays
+      %h4#about-description We are a listing of farmstays around the world.  We can help you find out about the most interesting destinations.  Many of the farms listed here offer some of the best travel bargains you will find. Accomodations range from luxurious to adventurous. Whether you want to ride an elephant or learn about permaculture, there is something for you here.  
+  
+  
+:javascript 
+  src="js/home.js" type="text/javascript" charset="utf-8"
+    
 %footer
   = render 'layouts/footer'
   
