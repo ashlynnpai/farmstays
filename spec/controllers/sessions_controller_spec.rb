@@ -25,11 +25,6 @@ describe SessionsController do
         post :create, email: u.email, password: u.password
         expect(response).to redirect_to root_path
       end
-      it "sets the notice" do 
-        u = Fabricate(:user)
-        post :create, email: u.email, password: u.password
-        expect(flash[:notice]).not_to be_blank
-      end
     end 
     
     context "with invalid credentials" do
@@ -60,9 +55,6 @@ describe SessionsController do
     it "redirects to the root path" do
       expect(response).to redirect_to root_path
     end
-    it "sets the notice" do
-      expect(flash[:notice]).not_to be_blank
-    end    
   end
   
 end

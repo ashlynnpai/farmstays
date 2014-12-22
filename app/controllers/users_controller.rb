@@ -12,9 +12,12 @@ class UsersController < ApplicationController
       flash[:notice] = "You are registered."
       redirect_to root_path
     else
-      flash[:notice] = "There was a problem. Please try again."
       render :new
     end
+  end
+  
+  def show
+    @user = User.find(params[:id])
   end
   
   def user_params

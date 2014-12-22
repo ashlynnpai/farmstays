@@ -1,0 +1,16 @@
+%section.register.container
+  .row
+    %h5 This site is currently in demo status. The farms here all fictional and the database may be flushed at any time.
+    .col-sm-8
+      .form-horizontal
+        = bootstrap_form_for @user do |f|
+          %header
+            %h3 Sign up to use all our features.
+          %fieldset
+            .col-sm-6
+              = f.text_field :email, label: "Email"
+              = f.password_field :password, label: "Password"
+              = f.text_field :name , label: "Name"
+          %fieldset.actions.control-group
+            .controls
+              = f.submit(@user.new_record? ? 'Register' : 'Update Profile', class: 'btn btn-success') 

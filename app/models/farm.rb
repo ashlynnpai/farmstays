@@ -9,6 +9,10 @@ class Farm < ActiveRecord::Base
   def self.latest_farms
     Farm.order('created_at DESC').first(3)
   end
+  
+  def self.search_farms(term)
+    where("name ILIKE ? or address ILIKE ? or description ILIKE ?", "%#{term}%", "%#{term}%", "%#{term}%")
+  end
 
-end
+end 
 

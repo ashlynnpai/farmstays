@@ -1,14 +1,30 @@
 .container.farm-info
   = link_to image_tag(@farm.photo, width: '700')
-  .farm-info
-    %h2= @farm.name
-    %h4.heading Location
-    %p= @farm.address
-    %h4.heading Contact
-    %p Email: #{@farm.email}
-    %p Phone: #{@farm.phone}
-    %p Website: #{@farm.website}
-    %h4.heading Price: $#{@farm.price}
-    %h4.heading Description
-    %p= @farm.description
+  %h2= @farm.name
+  %h4.heading Location
+  %p= @farm.address
+  %h4.heading Contact
+  %p Email: #{@farm.email}
+  %p Phone: #{@farm.phone}
+  %p Website: #{@farm.website}
+  %h4.heading Price: $#{@farm.price}
+  %h4.heading Description
+  %p= @farm.description
+
+
+  %h4.heading Reviews for this Farm (#{@reviews.count})
+  - @reviews.each do |review| 
+    .well.farm-reviews
+      %h4= link_to review.creator.name, user_path(review.creator)
+      %p= review.updated_at
+      %p= review.content
+  - if logged_in?
+    = form_for [@farm, Review.new] do |f|
+      %fieldset
+      .form-group
+        %label.heading Write a Review
+        %br
+        =f.text_area :content, rows: 6, class: "form-control" 
+        %fieldset.form-group.actions.clearfix
+        %input(type="submit" value="Submit" class="btn btn-success")
 

@@ -5,8 +5,14 @@ class FarmsController < ApplicationController
   
   def show
     @farm = Farm.find(params[:id])
+    @reviews = @farm.reviews
+    @review = Review.new
   end
   
+  def search
+    @results = Farm.search_farms(params[:term])
+  end
+ 
    private
   
    def post_params

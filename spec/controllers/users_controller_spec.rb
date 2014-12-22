@@ -14,7 +14,7 @@ describe UsersController do
       it "creates user record" do
         expect(User.count).to eq(1)
       end
-      it "redirects to signin" do
+      it "redirects to home" do
         expect(response).to redirect_to root_path
       end
     end
@@ -30,6 +30,14 @@ describe UsersController do
       it "sets @user" do
         expect(assigns(:user)).to be_instance_of(User)
       end
+    end
+  end
+  
+  describe "GET show" do
+    it "sets @user" do
+      user = Fabricate(:user)
+      get :show, id: user.id
+      expect(response).to be_success
     end
   end
 end

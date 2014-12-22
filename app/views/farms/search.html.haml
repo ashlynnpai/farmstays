@@ -1,0 +1,5 @@
+.container.results
+  %h4 Your search results
+  - @results.each do |farm|
+    %h3= link_to farm.name, farm_path(farm)
+    %h4= farm.address

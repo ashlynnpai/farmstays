@@ -10,22 +10,25 @@
     <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="main">
   <div class="container-fluid">
     <header>
-      <nav class="navbar navbar-custom" role="navigation">
-        <div class="container-fluid">
-            <%= render 'layouts/navigation' %>
-        </div>
+      <nav class="navbar navbar-fixed-top" role="navigation">
+        <%= render 'layouts/navigation' %>
       </nav>
     </header>
-
-<%= yield %>
   </div>
-</body>
   
-<footer>
-  <%= render 'layouts/footer' %>
-</footer>
+  <div class="container-fluid">
+    <div class="main-content">
+      <div class="message">
+           <%= render 'layouts/messages' %>
+      </div>
+    <%= yield %>
+    </div>
+  </div>
+
+</body>
+
 </html>
 
