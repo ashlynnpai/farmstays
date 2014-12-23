@@ -11,6 +11,7 @@ class Farm < ActiveRecord::Base
   end
   
   def self.search_farms(term)
+    return [] if term.blank?
     where("name ILIKE ? or address ILIKE ? or description ILIKE ?", "%#{term}%", "%#{term}%", "%#{term}%")
   end
 

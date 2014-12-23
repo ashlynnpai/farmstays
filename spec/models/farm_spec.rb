@@ -43,6 +43,11 @@ describe Farm do
        llama = Farm.create(name: "Llama Land Farm", address: "Llama Valley, Peru", description: "We offer a llama farm full of friendly llamas to pet.  We also have a store where we sell crafts.  We don't offer accommodation but we can recommend some guesthouses nearby. Photo by Thomas Quine, CC by 2.0.", email: "llamas@fake.com", phone: "0000", website: "llamaland.fake", price: 30, photo: "llama.jpg", region_id: 3)
        expect(Farm.search_farms("peru")).to eq([llama])
     end
+    
+    it "returns an empty array if field is blank" do
+      farm = Fabricate(:farm)
+      expect(Farm.search_farms("")).to eq([])
+    end
   end
   
 end
