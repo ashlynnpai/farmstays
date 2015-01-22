@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :require_user
-  #before_action :require_same_user, only: [:edit, :update]
+  before_action :require_same_user, only: [:update]
 
   def create
     @farm = Farm.find(params[:farm_id])

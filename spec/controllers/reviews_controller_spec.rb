@@ -43,6 +43,8 @@ describe ReviewsController do
      end
     
     context "with unauthenticated users" do
+        let(:user) { Fabricate(:user) }
+        before { session[:user_id] = user.id }
         it "redirects to farm path" do
           farm = Fabricate(:farm)
           review = Fabricate(:review, farm_id: farm.id)
