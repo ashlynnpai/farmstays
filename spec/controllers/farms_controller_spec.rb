@@ -15,7 +15,11 @@ describe FarmsController do
       farm = Fabricate(:farm)
       get :show, id: farm.id
       expect(assigns(:farm)).to eq(farm)
-    end      
+    end
+    it "renders the template show" do
+      farm = Fabricate(:farm)
+      get :show, id: farm.id
+      expect(response).to render_template :show
+    end 
   end
-    
 end

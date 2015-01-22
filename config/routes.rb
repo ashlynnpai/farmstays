@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     collection do
       get :search, to: "farms#search"
     end
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:create, :edit, :update]
   end
   
   resources :users, only: [:create, :show]

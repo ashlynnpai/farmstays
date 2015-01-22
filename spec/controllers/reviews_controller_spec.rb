@@ -29,8 +29,28 @@ describe ReviewsController do
       end
     end   
   end 
+  
+  describe "GET edit" do
+     context "with authenticated users" do
+        let(:current_user) { Fabricate(:user) }
+        before { session[:user_id] = current_user.id }
+        it "retrieves @review" do
+          farm = Fabricate(:farm)
+          review = Fabricate(:review, farm_id: farm.id)
+          get :edit, id: review.id, farm_id: farm.id
+          expect(assigns(:review)).to eq(review)
+        end       
+     end
+    
+    context "with unauthenticated users" do
+        it "redirects to farm path" do
+          farm = Fabricate(:farm)
+          review = Fabricate(:review, farm_id: farm.id)
+          get :edit, id: review.id, farm_id: farm.id
+          expect(response).to redirect_to farm_path(farm)
+        end       
+     end
+  end
 end
 
-
-      
    
