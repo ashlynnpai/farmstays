@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create, :edit, :update]
   end
   
+  namespace :farmer do
+    resources :farms, only: [:new, :create, :edit, :update]
+  end
+  
   resources :users, only: [:create, :show]
   
   get '/register', to: 'users#new'
