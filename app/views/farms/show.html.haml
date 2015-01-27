@@ -1,6 +1,6 @@
-= render 'shared/messages' 
-
 .container.farm-info
+  .farm-show-message
+    = render 'shared/messages' 
   = link_to image_tag(@farm.photo, width: '700')
   %h2= @farm.name
   %h4.heading Location
