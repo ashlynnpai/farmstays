@@ -39,7 +39,7 @@ describe SessionsController do
         expect(response).to redirect_to login_path
       end
       it "sets the error message" do
-        expect(flash[:error]).not_to be_blank
+        expect(flash[:danger]).not_to be_blank
       end
     end
   end

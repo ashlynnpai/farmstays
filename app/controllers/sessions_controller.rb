@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path
     else
-      flash[:error] = "There's something wrong with your username or password."
+      flash[:danger] = "There's something wrong with your username or password."
       redirect_to login_path
     end
   end

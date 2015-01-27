@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     @review = @farm.reviews.build(params.require(:review).permit(:content))
     @review.creator = current_user
     if @review.save
-      flash[:notice] = "Thank you for your review."
+      flash[:success] = "Thank you for your review."
       redirect_to farm_path(@farm)
     else
       @reviews = @farm.reviews.reload
@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
     require_same_user
   
     if @review.update(review_params)
-      flash[:notice] = "The review was updated"
+      flash[:success] = "The review was updated"
       redirect_to farm_path(@farm)
     else
       render :edit

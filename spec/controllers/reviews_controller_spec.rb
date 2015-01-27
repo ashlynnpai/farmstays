@@ -20,6 +20,9 @@ describe ReviewsController do
         it "creates a review associated with the signed in user" do
           expect(Review.first.creator).to eq(current_user)
         end
+        it "sets the flash success message" do
+          expect(flash[:success]).not_to be_blank
+        end
       end
     end
      context "with unauthenticated users" do
@@ -63,6 +66,12 @@ describe ReviewsController do
         review = Fabricate(:review, farm_id: farm.id, content: "old review", user_id: current_user.id)
         put :update, farm_id: farm.id, id: review.id, review: {content: "new review"}
         expect(review.reload.content).to eq("new review")
+      end   
+      it "sets the flash success message" do
+          farm = Fabricate(:farm)
+          review = Fabricate(:review, farm_id: farm.id, content: "old review", user_id: current_user.id)
+          put :update, farm_id: farm.id, id: review.id, review: {content: "new review"}
+          expect(flash[:success]).not_to be_blank
       end
     end
   end
