@@ -32,29 +32,35 @@
             <span class='caret'></span>
           <% end %>
           <ul class='dropdown-menu dropdown-menu-left'>
-            <li><%= link_to user_path(current_user) do%>
-            <i class='icon-circle-arrow-left'></i>
-            My public profile
-          <% end %>
-          </li>
-          <li><%= link_to logout_path do%>
+            <li><%= link_to user_path(current_user) do %>
+              <i class='icon-circle-arrow-left'></i>
+              My public profile
+            <% end %>
+            </li>           
+            <% if current_user.farmer? %>
+               <li><%= link_to new_farmer_farm_path do %>
+                 <i class='icon-circle-arrow-left'></i>
+                 Create your farm profile
+               <% end %>
+               </li>
+            <% end %>
+          <li><%= link_to logout_path do %>
             <i class='icon-circle-arrow-left'></i>
             Logout
           <% end %>
-          </li>
-        </ul>
-    </li>
+        </li>
+    </ul>
     <% else %>
-         <li>
-      <div class='nav_item navbar-right' id='user-item'>
-        <%= link_to 'Log in', login_path, class: '' %>
-       </div>
+      <li>
+        <div class='nav_item navbar-right' id='user-item'>
+          <%= link_to 'Log in', login_path, class: '' %>
+         </div>
      </li>
      <li>
        <div class='nav_item navbar-right' id='user-item'>
         <%= link_to 'Register', register_path %>
        </div>
      </li>
-      <% end %>
+   <% end %>
   </ul>
 

@@ -6,5 +6,6 @@ Fabricator(:farm) do
   phone { Faker::PhoneNumber.phone_number }
   website { Faker::Internet.url }
   price { (20..120).to_a.sample }
+  region_id { (1..9).to_a.sample }
 end
   

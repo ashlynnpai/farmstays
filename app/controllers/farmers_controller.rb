@@ -4,8 +4,7 @@ class FarmersController < ApplicationController
   
   def require_farmer
     unless current_user.farmer?
-      flash[:danger] = "That's for farmers only, sorry."
-      redirect_to home_path
+      redirect_to root_path
     end
   end   
 end

@@ -1,1 +1,17 @@
-%h3 Create your farm profile
+.farm-profile
+  %h3 Create your farm profile
+
+  = bootstrap_form_for @farm do |f|
+
+    = f.text_field :name
+    = f.text_field :address
+    = f.text_area :description, rows: 8, class: "col-md-6"
+    = f.text_field :email
+    = f.text_field :phone
+    = f.text_field :website
+    = f.text_field :price
+    = f.text_field :photo
+    = f.select :region_id, options_for_select(Region.all.map {|region| [region.name, region.id]})
+
+    %input(type="submit" value="Add Farm" class="btn btn-success")  
+

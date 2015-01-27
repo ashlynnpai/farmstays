@@ -5,6 +5,7 @@ class Farm < ActiveRecord::Base
   validates :name, presence: true
   validates :address, presence: true
   validates :description, presence: true
+  validates :region_id, presence: true
      
   def self.latest_farms
     Farm.order('created_at DESC').first(3)
