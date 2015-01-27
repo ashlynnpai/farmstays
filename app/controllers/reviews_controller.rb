@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :require_user
-  before_action :require_same_user, only: [:update]
+ # before_action :require_same_user, only: [:update]
 
   def create
     @farm = Farm.find(params[:farm_id])
@@ -21,9 +21,27 @@ class ReviewsController < ApplicationController
     require_same_user
   end
   
+  def update   
+    @review = Review.find(params[:id])
+    @farm = @review.farm
+    @review.creator = current_user
+    require_same_user
+  
+    if @review.update(review_params)
+      flash[:notice] = "The review was updated"
+      redirect_to farm_path(@farm)
+    else
+      render :edit
+    end
+  end
+ 
   private
   
   def require_same_user
     redirect_to farm_path(@farm) unless logged_in? and (current_user == @review.creator)
+  end
+    
+  def review_params
+    params.require(:review).permit(:content)
   end
 end

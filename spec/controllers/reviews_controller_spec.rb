@@ -53,6 +53,19 @@ describe ReviewsController do
         end       
      end
   end
+    
+  describe "PUT update" do
+    context "with authenticated users" do
+      let(:current_user) { Fabricate(:user) }
+      before { session[:user_id] = current_user.id }
+      it "updates the review" do
+        farm = Fabricate(:farm)
+        review = Fabricate(:review, farm_id: farm.id, content: "old review", user_id: current_user.id)
+        put :update, farm_id: farm.id, id: review.id, review: {content: "new review"}
+        expect(review.reload.content).to eq("new review")
+      end
+    end
+  end
 end
 
    
