@@ -2,8 +2,8 @@ class Farm < ActiveRecord::Base
   has_many :reviews
   belongs_to :region
   
-  validates :name, presence: true
-  validates :address, presence: true
+  validates :name, presence: true, uniqueness: true
+  validates :address, presence: true, uniqueness: true
   validates :description, presence: true
   validates :region_id, presence: true
      

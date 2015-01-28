@@ -5,6 +5,8 @@ describe Farm do
   it { should validate_presence_of(:address)}  
   it { should validate_presence_of(:description)}  
   it { should validate_presence_of(:region_id)}  
+  it { should validate_uniqueness_of(:name) }
+  it { should validate_uniqueness_of(:address) }
   it { should have_many(:reviews)}
   it { should belong_to(:region) }
   
@@ -36,7 +38,7 @@ describe Farm do
     
     it "returns an array of two farms for a partial match" do
        llama = Farm.create(name: "Llama Land Farm", address: "Llama Valley, Peru", description: "We offer a llama farm full of friendly llamas to pet.  We also have a store where we sell crafts.  We don't offer accommodation but we can recommend some guesthouses nearby. Photo by Thomas Quine, CC by 2.0.", email: "llamas@fake.com", phone: "0000", website: "llamaland.fake", price: 30, photo: "llama.jpg", region_id: 3)
-       tibet = Farm.create(name: "Dalai Lama Retreat", address: "Llama Valley, Peru", description: "We offer a llama farm full of friendly llamas to pet.  We also have a store where we sell crafts.  We don't offer accommodation but we can recommend some guesthouses nearby. Photo by Thomas Quine, CC by 2.0.", email: "llamas@fake.com", phone: "0000", website: "llamaland.fake", price: 30, photo: "llama.jpg", region_id: 3)
+       tibet = Farm.create(name: "Dalai Lama Retreat", address: "Big Mountain", description: "We offer a llama farm full of friendly llamas to pet.  We also have a store where we sell crafts.  We don't offer accommodation but we can recommend some guesthouses nearby. Photo by Thomas Quine, CC by 2.0.", email: "llamas@fake.com", phone: "0000", website: "llamaland.fake", price: 30, photo: "llama.jpg", region_id: 3)
       expect(Farm.search_farms("lama").length).to eq(2)
     end
     

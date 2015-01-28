@@ -24,7 +24,6 @@ class ReviewsController < ApplicationController
   def update   
     @review = Review.find(params[:id])
     @farm = @review.farm
-    @review.creator = current_user
     require_same_user
   
     if @review.update(review_params)

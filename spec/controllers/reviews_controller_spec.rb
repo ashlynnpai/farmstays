@@ -34,31 +34,36 @@ describe ReviewsController do
   end 
   
   describe "GET edit" do
-     context "with authenticated users" do
-        let(:current_user) { Fabricate(:user) }
-        before { session[:user_id] = current_user.id }
+    context "with the user's own review" do
+      before do
+        @reviewer = Fabricate(:user)
+        session[:user_id] = @reviewer.id
+      end
         it "retrieves @review" do
           farm = Fabricate(:farm)
-          review = Fabricate(:review, farm_id: farm.id)
-          get :edit, id: review.id, farm_id: farm.id
+          review = Fabricate(:review, farm_id: farm.id, user_id: @reviewer.id)
+          get :edit, farm_id: farm.id, id: review.id
           expect(assigns(:review)).to eq(review)
         end       
      end
     
-    context "with unauthenticated users" do
-        let(:user) { Fabricate(:user) }
-        before { session[:user_id] = user.id }
+    context "with another user's review" do
+      before do
+        @reviewer = Fabricate(:user)
+        @reader = Fabricate(:user)
+        session[:user_id] = @reader.id
+      end
         it "redirects to farm path" do
           farm = Fabricate(:farm)
-          review = Fabricate(:review, farm_id: farm.id)
-          get :edit, id: review.id, farm_id: farm.id
+          review = Fabricate(:review, farm_id: farm.id, user_id: @reviewer.id)
+          get :edit, farm_id: farm.id, id: review.id
           expect(response).to redirect_to farm_path(farm)
         end       
      end
   end
     
   describe "PUT update" do
-    context "with authenticated users" do
+    context "with the user's own review" do
       let(:current_user) { Fabricate(:user) }
       before { session[:user_id] = current_user.id }
       it "updates the review" do
@@ -68,10 +73,10 @@ describe ReviewsController do
         expect(review.reload.content).to eq("new review")
       end   
       it "sets the flash success message" do
-          farm = Fabricate(:farm)
-          review = Fabricate(:review, farm_id: farm.id, content: "old review", user_id: current_user.id)
-          put :update, farm_id: farm.id, id: review.id, review: {content: "new review"}
-          expect(flash[:success]).not_to be_blank
+        farm = Fabricate(:farm)
+        review = Fabricate(:review, farm_id: farm.id, content: "old review", user_id: current_user.id)
+        put :update, farm_id: farm.id, id: review.id, review: {content: "new review"}
+        expect(flash[:success]).not_to be_blank
       end
     end
   end

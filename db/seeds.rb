@@ -25,25 +25,25 @@ Farm.create(name: "Fertile Nile Farm", address: "Nile Road, Egypt", description:
 
 Farm.create(name: "Sheep Shelter Farm", address: "Old Sheep Road, New Zealand", description: "We have lots of sheep here. Our inn offers ten ensuite rooms.  Breakfast is included. Photo by Greg Bailey, CC by 2.0.", email: "sheep@fake.com", phone: "0000", website: "sheepshelter.fake", price: 80, photo: "sheep.jpg", region_id: 9)
 
-Farm.create(name: "Another Farm", address: "Somewhere", description: "This is a great farm with lots of hay.", email: "farm@fake.com", phone: "0000", website: "farm.fake", price: 30, photo: "hay.jpg", region_id: 1, created_at: "2007-12-21 03:55:47", updated_at: "2007-12-21 03:55:47")
+# Farm.create(name: "Another Farm", address: "Somewhere", description: "This is a great farm with lots of hay.", email: "farm@fake.com", phone: "0000", website: "farm.fake", price: 30, photo: "hay.jpg", region_id: 1, created_at: "2007-12-21 03:55:47", updated_at: "2007-12-21 03:55:47")
 
-Farm.create(name: "Another Farm", address: "Somewhere", description: "This is a great farm with lots of hay.", email: "farm@fake.com", phone: "0000", website: "farm.fake", price: 30, photo: "hay.jpg", region_id: 2, created_at: "2007-12-21 03:55:47", updated_at: "2007-12-21 03:55:47")
+# Farm.create(name: "Another Farm", address: "Somewhere", description: "This is a great farm with lots of hay.", email: "farm@fake.com", phone: "0000", website: "farm.fake", price: 30, photo: "hay.jpg", region_id: 2, created_at: "2007-12-21 03:55:47", updated_at: "2007-12-21 03:55:47")
 
-Farm.create(name: "Another Farm", address: "Somewhere", description: "This is a great farm with lots of hay.", email: "farm@fake.com", phone: "0000", website: "farm.fake", price: 30, photo: "hay.jpg", region_id: 3, created_at: "2007-12-21 03:55:47", updated_at: "2007-12-21 03:55:47")
+# Farm.create(name: "Another Farm", address: "Somewhere", description: "This is a great farm with lots of hay.", email: "farm@fake.com", phone: "0000", website: "farm.fake", price: 30, photo: "hay.jpg", region_id: 3, created_at: "2007-12-21 03:55:47", updated_at: "2007-12-21 03:55:47")
 
-Farm.create(name: "Another Farm", address: "Somewhere", description: "This is a great farm with lots of hay.", email: "farm@fake.com", phone: "0000", website: "farm.fake", price: 30, photo: "hay.jpg", region_id: 4, created_at: "2007-12-21 03:55:47", updated_at: "2007-12-21 03:55:47")
+# Farm.create(name: "Another Farm", address: "Somewhere", description: "This is a great farm with lots of hay.", email: "farm@fake.com", phone: "0000", website: "farm.fake", price: 30, photo: "hay.jpg", region_id: 4, created_at: "2007-12-21 03:55:47", updated_at: "2007-12-21 03:55:47")
 
-Farm.create(name: "Another Farm", address: "Somewhere", description: "This is a great farm with lots of hay.", email: "farm@fake.com", phone: "0000", website: "farm.fake", price: 30, photo: "hay.jpg", region_id: 5, created_at: "2007-12-21 03:55:47", updated_at: "2007-12-21 03:55:47")
+# Farm.create(name: "Another Farm", address: "Somewhere", description: "This is a great farm with lots of hay.", email: "farm@fake.com", phone: "0000", website: "farm.fake", price: 30, photo: "hay.jpg", region_id: 5, created_at: "2007-12-21 03:55:47", updated_at: "2007-12-21 03:55:47")
 
-Farm.create(name: "Another Farm", address: "Somewhere", description: "This is a great farm with lots of hay.", email: "farm@fake.com", phone: "0000", website: "farm.fake", price: 30, photo: "hay.jpg", region_id: 7, created_at: "2007-12-21 03:55:47", updated_at: "2007-12-21 03:55:47")
+# Farm.create(name: "Another Farm", address: "Somewhere", description: "This is a great farm with lots of hay.", email: "farm@fake.com", phone: "0000", website: "farm.fake", price: 30, photo: "hay.jpg", region_id: 7, created_at: "2007-12-21 03:55:47", updated_at: "2007-12-21 03:55:47")
 
-Farm.create(name: "Another Farm", address: "Somewhere", description: "This is a great farm with lots of hay.", email: "farm@fake.com", phone: "0000", website: "farm.fake", price: 30, photo: "hay.jpg", region_id: 8, created_at: "2007-12-21 03:55:47", updated_at: "2007-12-21 03:55:47")
+# Farm.create(name: "Another Farm", address: "Somewhere", description: "This is a great farm with lots of hay.", email: "farm@fake.com", phone: "0000", website: "farm.fake", price: 30, photo: "hay.jpg", region_id: 8, created_at: "2007-12-21 03:55:47", updated_at: "2007-12-21 03:55:47")
 
-Farm.create(name: "Another Farm", address: "Somewhere", description: "This is a great farm with lots of hay.", email: "farm@fake.com", phone: "0000", website: "farm.fake", price: 30, photo: "hay.jpg", region_id: 9, created_at: "2007-12-21 03:55:47", updated_at: "2007-12-21 03:55:47")
+# Farm.create(name: "Another Farm", address: "Somewhere", description: "This is a great farm with lots of hay.", email: "farm@fake.com", phone: "0000", website: "farm.fake", price: 30, photo: "hay.jpg", region_id: 9, created_at: "2007-12-21 03:55:47", updated_at: "2007-12-21 03:55:47")
 
-Farm.create(name: "Another Farm", address: "Somewhere", description: "This is a great farm with lots of hay.", email: "farm@fake.com", phone: "0000", website: "farm.fake", price: 30, photo: "hay.jpg", region_id: 6, created_at: "2007-12-21 03:55:47", updated_at: "2007-12-21 03:55:47")
+# Farm.create(name: "Another Farm", address: "Somewhere", description: "This is a great farm with lots of hay.", email: "farm@fake.com", phone: "0000", website: "farm.fake", price: 30, photo: "hay.jpg", region_id: 6, created_at: "2007-12-21 03:55:47", updated_at: "2007-12-21 03:55:47")
 
-Farm.create(name: "Another Farm", address: "Somewhere", description: "This is a great farm with lots of hay.", email: "farm@fake.com", phone: "0000", website: "farm.fake", price: 30, photo: "hay.jpg", region_id: 1, created_at: "2007-12-21 03:55:47", updated_at: "2007-12-21 03:55:47")
+# Farm.create(name: "Another Farm", address: "Somewhere", description: "This is a great farm with lots of hay.", email: "farm@fake.com", phone: "0000", website: "farm.fake", price: 30, photo: "hay.jpg", region_id: 1, created_at: "2007-12-21 03:55:47", updated_at: "2007-12-21 03:55:47")
 
 
 Region.create(name: "Africa-Sub Saharan")
