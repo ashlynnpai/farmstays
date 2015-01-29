@@ -1,7 +1,7 @@
 .farm-profile
   %h3 Create your farm profile
 
-  = bootstrap_form_for @farm do |f|
+  = bootstrap_form_for [:farmer, @farm] do |f|
 
     = f.text_field :name
     = f.text_field :address
