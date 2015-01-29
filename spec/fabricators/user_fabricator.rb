@@ -7,3 +7,8 @@ end
 Fabricator(:farmer, from: :user) do
   farmer true
 end
+
+Fabricator(:admin, from: :user) do
+  admin true
+  farmer false
+end

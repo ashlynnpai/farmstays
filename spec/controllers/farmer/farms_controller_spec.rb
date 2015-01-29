@@ -20,9 +20,23 @@ describe Farmer::FarmsController do
   end
   
   describe "POST create" do
-    context "with valid input" do
+    context "with valid input and logged in as a farmer" do
       before do 
         set_farmer
+        post :create, farm: Fabricate.attributes_for(:farm) 
+      end
+      it "creates farm record" do
+        expect(Farm.count).to eq(1)
+      end
+      it "redirects to new farm sho page" do
+        farm = Farm.first
+        expect(response).to redirect_to farm_path(farm)
+      end
+    end
+    
+    context "with valid input and logged in as admin" do
+      before do 
+        set_admin
         post :create, farm: Fabricate.attributes_for(:farm) 
       end
       it "creates farm record" do
