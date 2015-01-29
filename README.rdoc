@@ -1,3 +1,3 @@
-An applications for farms to advertise their farmstay offerings and users to write reviews.
+An application for farms to advertise their farmstay offerings and users to write reviews.
 
 Built with Rails 4.1.7.

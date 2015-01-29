@@ -7,5 +7,6 @@ Fabricator(:farm) do
   website { Faker::Internet.url }
   price { (20..120).to_a.sample }
   region_id { (1..9).to_a.sample }
+  user_id 1
 end
   

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :reviews
   has_secure_password validations: false
+  has_many :farms
   
   
   validates :email, presence: true, uniqueness: true

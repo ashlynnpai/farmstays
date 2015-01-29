@@ -6,7 +6,6 @@ describe Farm do
   it { should validate_presence_of(:description)}  
   it { should validate_presence_of(:region_id)}  
   it { should validate_uniqueness_of(:name) }
-  it { should validate_uniqueness_of(:address) }
   it { should have_many(:reviews)}
   it { should belong_to(:region) }
   

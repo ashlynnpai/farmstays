@@ -1,6 +1,7 @@
 .container
   .region-list
     %h2= @region.name
+    %h4 #{@region.farms.count} farms listed for this region
     - @region.farms.each do |farm|    
       .row
         .col-sm-6 

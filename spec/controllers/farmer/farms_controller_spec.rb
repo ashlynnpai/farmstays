@@ -28,9 +28,13 @@ describe Farmer::FarmsController do
       it "creates farm record" do
         expect(Farm.count).to eq(1)
       end
-      it "redirects to new farm sho page" do
+      it "redirects to new farm show page" do
         farm = Farm.first
         expect(response).to redirect_to farm_path(farm)
+      end
+      it "sets the flash success message" do
+        farm = Farm.first
+        expect(flash[:success]).not_to be_blank
       end
     end
     
@@ -42,7 +46,7 @@ describe Farmer::FarmsController do
       it "creates farm record" do
         expect(Farm.count).to eq(1)
       end
-      it "redirects to new farm sho page" do
+      it "redirects to new farm show page" do
         farm = Farm.first
         expect(response).to redirect_to farm_path(farm)
       end
@@ -75,6 +79,50 @@ describe Farmer::FarmsController do
       end
       it "redirects to the root path" do
         expect(response).to redirect_to root_path
+      end
+    end
+  end
+  
+  describe "GET edit" do
+    context "logged in as the farmer who owns the farm" do
+      before do
+        set_farmer
+      end
+      it "retrieves @farm" do
+        farm = Fabricate(:farm)
+        get :edit, id: farm.id
+        expect(assigns(:farm)).to eq(farm)
+      end    
+    end
+    
+    context "not logged in as the farmer who owns the farm" do
+      before do
+        farmer1 = Fabricate(:farmer)
+        @farmer2 = Fabricate(:farmer)
+        session[:user_id] = farmer1.id
+      end
+      it "does not retrieve @farm" do
+        farm = Fabricate(:farm, user_id: @farmer2.id)
+        get :edit, id: farm.id
+        expect(response).to redirect_to farm_path(farm)
+      end      
+    end
+  end
+  
+  describe "PUT update" do
+    context "with the farmer's own farm" do
+      before do
+        set_farmer
+      end
+      it "updates the farm profile" do
+        farm = Fabricate(:farm, name: "old farm")
+        put :update, id: farm.id, farm: { name: "new farm"}
+        expect(farm.reload.name).to eq("new farm")
+      end
+      it "sets the flash success" do
+        farm = Fabricate(:farm, name: "old farm")
+        put :update, id: farm.id, farm: { name: "new farm"}
+        expect(flash[:success]).not_to be_blank
       end
     end
   end
