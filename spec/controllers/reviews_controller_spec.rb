@@ -9,7 +9,7 @@ describe ReviewsController do
       
       context "with valid input" do
         before do
-          post :create, review: Fabricate.attributes_for(:review), farm_id: farm.id
+          post :create, review: Fabricate.attributes_for(:review), farm_id: farm.slug
         end
         it "redirects to show farm" do         
           expect(response).to redirect_to farm_path(farm)

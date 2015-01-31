@@ -38,6 +38,12 @@
             <% end %>
             </li>           
             <% if current_user.farmer? %>
+            
+            <li><%= link_to farmer_path(current_user) do %>
+                 <i class='icon-circle-arrow-left'></i>
+                 Dashboard
+               <% end %>
+               </li>
                <li><%= link_to new_farmer_farm_path do %>
                  <i class='icon-circle-arrow-left'></i>
                  Create your farm profile

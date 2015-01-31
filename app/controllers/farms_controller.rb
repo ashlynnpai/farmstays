@@ -4,7 +4,7 @@ class FarmsController < ApplicationController
   end
   
   def show
-    @farm = Farm.find(params[:id])
+    @farm = Farm.find_by slug: params[:id]
     @reviews = @farm.reviews
     @review = Review.new
   end

@@ -13,12 +13,12 @@ describe FarmsController do
   describe "GET show" do  
     it "sets @farm variable" do
       farm = Fabricate(:farm)
-      get :show, id: farm.id
+      get :show, id: farm.slug
       expect(assigns(:farm)).to eq(farm)
     end
     it "renders the template show" do
       farm = Fabricate(:farm)
-      get :show, id: farm.id
+      get :show, id: farm.slug
       expect(response).to render_template :show
     end 
   end

@@ -25,6 +25,8 @@ Farm.create(name: "Fertile Nile Farm", address: "Nile Road, Egypt", description:
 
 Farm.create(name: "Sheep Shelter Farm", address: "Old Sheep Road, New Zealand", description: "We have lots of sheep here. Our inn offers ten ensuite rooms.  Breakfast is included. Photo by Greg Bailey, CC by 2.0.", email: "sheep@example.com", phone: "0000", website: "sheepshelter.example", price: 80, photo: "sheep.jpg", region_id: 9)
 
+User.create(name: "Happy Hippo", password: "password1", email: "user1@example.com", farmer: "true")
+
 
 Region.create(name: "Africa-Sub Saharan")
 Region.create(name: "America-North")

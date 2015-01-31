@@ -1,0 +1,12 @@
+.dashboard
+  %h2 #{@farmer.name}'s Dashboard
+
+  
+  .row
+    %h4 Current farm profiles
+    - @farms.each do |farm|
+      .col-sm-4
+        %h4= link_to farm.name, farm_path(farm)
+
+  .row
+    %h4= link_to "Create new farm profile", new_farmer_farm_path

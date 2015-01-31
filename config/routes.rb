@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   
   namespace :farmer do
     resources :farms, only: [:new, :create, :edit, :update]
+    get '/users/dashboard/:id', to: '/farmer/users#dashboard'
   end
   
   resources :users, only: [:create, :show]

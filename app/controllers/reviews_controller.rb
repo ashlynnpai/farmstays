@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
  # before_action :require_same_user, only: [:update]
 
   def create
-    @farm = Farm.find(params[:farm_id])
+    @farm = Farm.find_by slug: params[:farm_id]
     @review = @farm.reviews.build(params.require(:review).permit(:content))
     @review.creator = current_user
     if @review.save
