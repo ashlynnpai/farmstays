@@ -30,7 +30,7 @@ describe SessionsController do
     context "with invalid credentials" do
       before do
         u = Fabricate(:user)
-        post :create, email: u.email, password: u.password + 'wrong'
+        post :create, email: u.email, password: 'wrong'
       end
       it "does not put signed in user in the session" do
         expect(session[:user_id]).to be_nil
