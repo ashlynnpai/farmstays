@@ -5,8 +5,12 @@ class FarmsController < ApplicationController
   
   def show
     @farm = Farm.find_by slug: params[:id]
-    @reviews = @farm.reviews
-    @review = Review.new
+    if @farm == nil
+      redirect_to root_path 
+    else
+      @reviews = @farm.reviews
+      @review = Review.new
+    end
   end
   
   def search

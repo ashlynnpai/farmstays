@@ -20,6 +20,16 @@ describe FarmsController do
       farm = Fabricate(:farm)
       get :show, id: farm.slug
       expect(response).to render_template :show
-    end 
+    end    
+    it "redirects to root path for an invalid slug" do
+      farm = Fabricate(:farm, slug: "good-slug")
+      get :show, id: "bad-slug"
+      expect(response).to redirect_to root_path
+    end
+    it "redirects to valid slug" do
+      farm = Fabricate(:farm, slug: "good-slug")
+      get :show, id: farm.slug
+      expect(response).to render_template 'show'
+    end
   end
 end

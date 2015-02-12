@@ -36,8 +36,31 @@ describe UsersController do
   describe "GET show" do
     it "sets @user" do
       user = Fabricate(:user)
-      get :show, id: user.id
+      get :show, id: user.slug
       expect(response).to be_success
+    end
+  end
+  
+  describe "GET show" do
+    it "sets @user" do
+      user = Fabricate(:user)
+      get :show, id: user.slug
+      expect(assigns(:user)).to eq(user)
+    end
+    it "renders the template show" do
+      user = Fabricate(:user)
+      get :show, id: user.slug
+      expect(response).to render_template :show
+    end
+    it "redirects to root path for an invalid slug" do
+      user = Fabricate(:user, slug: "good-slug")
+      get :show, id: "bad-slug"
+      expect(response).to redirect_to root_path
+    end
+    it "renders show for valid slug" do
+      user = Fabricate(:user, slug: "good-slug")
+      get :show, id: user.slug
+      expect(response).to render_template :show
     end
   end
 end
