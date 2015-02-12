@@ -19,11 +19,18 @@ describe Farmer::UsersController do
       end  
     end
     context 'with invalid authentication' do
-      let(:user) { Fabricate(:user, farmer: nil) }
-      before { session[:user_id] = user.id }
-      it "redirects to root path" do
+      it "redirects to root path where user is not a farmer" do
+        user = Fabricate(:user, farmer: nil)
+        session[:user_id] = user.id
         farmer = Fabricate(:farmer)
         get :dashboard, id: farmer.slug
+        expect(response).to redirect_to root_path
+      end
+      it "redirects to root path where user is not the same farmer" do
+        farmer1 = Fabricate(:farmer)
+        session[:user_id] = farmer1.id
+        farmer2 = Fabricate(:farmer)
+        get :dashboard, id: farmer2.slug
         expect(response).to redirect_to root_path
       end
     end
