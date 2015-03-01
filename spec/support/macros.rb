@@ -1,6 +1,6 @@
 def set_current_user
-  user1 = Fabricate(:user)
-  session[:user_id] = user1.id
+  user = Fabricate(:user)
+  session[:user_id] = user.id
 end
 
 def set_farmer(farmer=nil) #return current value of farmer or create a new farmer

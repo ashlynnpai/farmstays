@@ -35,27 +35,23 @@ describe ReviewsController do
   
   describe "GET edit" do
     context "with the user's own review" do
-      before do
-        @reviewer = Fabricate(:user)
-        session[:user_id] = @reviewer.id
-      end
-        it "retrieves @review" do
+      let(:current_user) { Fabricate(:user) }
+      before { session[:user_id] = current_user.id }
+        it "assigns @review" do
           farm = Fabricate(:farm)
-          review = Fabricate(:review, farm_id: farm.id, user_id: @reviewer.id)
+          review = Fabricate(:review, farm_id: farm.id, user_id: current_user.id)
           get :edit, farm_id: farm.id, id: review.id
           expect(assigns(:review)).to eq(review)
         end       
      end
     
     context "with another user's review" do
-      before do
-        @reviewer = Fabricate(:user)
-        @reader = Fabricate(:user)
-        session[:user_id] = @reader.id
-      end
+      let(:reviewer) { Fabricate(:user) }
+      let(:current_user) { Fabricate(:user) }
+      before { session[:user_id] = current_user.id }
         it "redirects to farm path" do
           farm = Fabricate(:farm)
-          review = Fabricate(:review, farm_id: farm.id, user_id: @reviewer.id)
+          review = Fabricate(:review, farm_id: farm.id, user_id: reviewer.id)
           get :edit, farm_id: farm.id, id: review.id
           expect(response).to redirect_to farm_path(farm)
         end       
