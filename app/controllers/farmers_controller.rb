@@ -10,7 +10,7 @@ class FarmersController < ApplicationController
   
   def require_same_farmer
     unless logged_in? and (current_user == @farm.farmer) or current_user.admin?
-        redirect_to farm_path(@farm) 
+      redirect_to farm_path(@farm) 
     end
   end
 end

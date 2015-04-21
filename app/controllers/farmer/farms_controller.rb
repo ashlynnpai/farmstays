@@ -24,12 +24,15 @@ class Farmer::FarmsController < FarmersController
   
   def update
     @farm = Farm.find(params[:id])
-    require_same_farmer
-    if @farm.update(farm_params)
-      flash[:success] = "Your farm profile was updated."
-      #redirect_to farm_path(@farm)
+    if logged_in? and (current_user == @farm.farmer) or current_user.admin?
+      if @farm.update(farm_params)
+        flash[:success] = "Your farm profile was updated."
+        redirect_to farm_path(@farm)
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to farm_path(@farm) 
     end
   end
 
