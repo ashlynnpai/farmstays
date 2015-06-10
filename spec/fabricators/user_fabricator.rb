@@ -1,6 +1,7 @@
 Fabricator(:user) do
   email { Faker::Internet.email }
-  password { Faker::Internet.password(7) }
+  password "password"
+  password_confirmation "password"
   name { Faker::Name.name }
 end
 

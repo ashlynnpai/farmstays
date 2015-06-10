@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, on: :create, length: {minimum: 7}
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   
   sluggable_column :name
   

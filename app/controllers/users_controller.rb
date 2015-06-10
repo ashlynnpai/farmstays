@@ -16,7 +16,6 @@ class UsersController < ApplicationController
   end
   
   def show
-    #@user = User.find(params[:id])
     @user = User.find_by slug: params[:id] 
     redirect_to root_path if @user == nil
   end
@@ -24,6 +23,6 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:email, :name, :password)
+    params.require(:user).permit(:email, :name, :password, :password_confirmation)
   end
 end
